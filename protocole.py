@@ -3,6 +3,12 @@
 Created on Sun Jan 27 23:47:12 2019
 
 @author: Alexis
+
+A class that specifies a set of possible cognitive task as well as other settings like electrode positionning and waiting time
+between different recordings
+
+Note that the install method basically consist in creating the audio instructions played at the beginning of tasks.
+This installation makes recording possible without an internet connexion
 """
 
 import random as rd
