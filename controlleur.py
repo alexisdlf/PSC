@@ -3,6 +3,8 @@
 Created on Wed Apr 10 23:49:30 2019
 
 @author: Alexis
+
+The class used to controll the arm (real one or simulated with Bras.py) using neuroGraph decisions
 """
 
 import tkinter as tk
