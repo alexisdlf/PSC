@@ -3,6 +3,8 @@
 Created on Sat Mar  9 12:11:39 2019
 
 @author: Alexis
+
+The main file : start the user interface to record or test machine learning predictions
 """
 
 import tkinter as tk
@@ -36,6 +38,8 @@ def load_obj(name ): #copied form stack overflow
     with open('obj/' + name + '.pkl', 'rb') as f:
         return pickle.load(f)
 
+
+"""Two classes to fake a stream or a machine learning engine to test the rest of the code """
 class FakeStream:
     def __init__(self):
         self.i = time.time()
@@ -55,6 +59,7 @@ class FakeMl:
     def predict(self, signal):
         #return math.sin(time.time())/2 + 0.5
         return rd.random()
+
 
 class NeuroApp:
     def __init__(self):
