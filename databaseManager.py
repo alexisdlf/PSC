@@ -3,6 +3,8 @@
 Created on Fri Sep 21 17:31:25 2018
 
 @author: Alexis
+
+A class to manage data saving and monitoring
 """
 
 import sqlite3
