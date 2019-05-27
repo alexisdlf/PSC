@@ -3,6 +3,16 @@
 Created on Sat Mar  9 11:43:34 2019
 
 @author: Alexis
+
+A ui elements that handles the recording of EEGs, while the user is doing cognitive tasks
+The user is given instructions on which task to perform thanks to audio instructions
+
+stream is the SreamListener that records data
+db is the DatabaseManager to handle data saving
+protocole specifies the different settings and possible cognitive tasks
+user is the name of the user, session the number of the recording session
+callback is actually unused 
+
 """
 
 import tkinter as tk
