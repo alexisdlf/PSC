@@ -3,6 +3,8 @@
 Created on Sun Dec 16 22:07:08 2018
 
 @author: Alexis
+
+A variation from streamListener better for recording and asynchronous protocol
 """
 
 from pylsl import StreamInlet, resolve_streams
