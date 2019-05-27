@@ -3,6 +3,11 @@
 Created on Wed Apr 10 18:05:51 2019
 
 @author: Alexis
+
+A class to draw a 2D arm to simulate a user controlling a real arm.
+The simulation includes the possiblity to make objects that the user tries to reach
+
+For possible english people : coude = elbow, bras = arm, epaule = shoulder, poignee = wrist
 """
 
 import tkinter as tk
