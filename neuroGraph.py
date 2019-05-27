@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Mar  9 12:11:39 2019
+
+@author: Alexis
+
+A bunch of classes made to display machine learning prediction and to try decide if a signal was actually done
+"""
+
+
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.animation as animation
@@ -9,6 +19,7 @@ from collections import deque
 
 import streamListener as sl
 
+"""basic ui element for dispalying predictions. Mother class of other classes that tries to decide wether or not there were a signal"""
 class AnimatedGraph(Frame):
     def __init__(self, master, label1, label2, figsize=(10,2), dpi=100):
         Frame.__init__(self, master)
@@ -86,6 +97,7 @@ class AnimatedGraph(Frame):
     def getState(self):
         return self.state
     
+"""A class that tries to decide using the mean prediction result over last t seconds"""
 class Intergrateur(AnimatedGraph):
     def __init__(self, master, t, seuil = 0.95, label1 = 'calcule', label2 = 'mouvement', figsize=(10,2), dpi=100):
         AnimatedGraph.__init__(self, master, label1, label2, figsize, dpi)
@@ -111,6 +123,8 @@ class Intergrateur(AnimatedGraph):
         self.axes.axhline(self.seuil, linewidth = 0.2)
         self.axes.axhline(-self.seuil, linewidth = 0.2)
     
+    
+"""A class that tries to decide by detecting moment were perc precentage of the prediction is above the treshold (= seuil)"""
 class Plateau(AnimatedGraph):
     def __init__(self, master, t, seuil, perc, label1 = 'calcule', label2 = 'mouvement', figsize=(10,2), dpi=100):
         AnimatedGraph.__init__(self, master, label1, label2, figsize, dpi)
@@ -145,6 +159,7 @@ class Plateau(AnimatedGraph):
         self.axes.axhline(self.seuil, linewidth = 0.2)
         self.axes.axhline(-self.seuil, linewidth = 0.2)
     
+"""A class that uses mean but with different treshols for the two possible signal"""
 class IntegrateurAsymetrique(Intergrateur):
     def __init__(self, master, t, seuil1, seuil2, label1 = 'calcule', label2 = 'mouvement', 
                  figsize=(10,2), dpi=100):
@@ -166,7 +181,7 @@ class IntegrateurAsymetrique(Intergrateur):
         self.axes.axhline(self.seuil1, linewidth = 0.2)
         self.axes.axhline(-self.seuil2, linewidth = 0.2)        
 
-
+"""A class that uses two different decider class for the two possible signal"""
 class Asym(AnimatedGraph):
     def __init__(self, master, dec1, dec2, figsize=(10,2), dpi=100):
         self.d1 = dec1
