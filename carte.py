@@ -3,6 +3,9 @@
 Created on Wed Jan 16 17:40:53 2019
 
 @author: Alexis
+
+This files gives a few function for signal processoring and displayng
+
 """
 
 import numpy as np
@@ -12,6 +15,7 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as col
 import matplotlib.mlab as mlab
 
+# makes a spectogram
 def getFreqArray(data, freqS, fenetre, minFreq, maxFreq):
     '''renvoie la carte temps-fréquence. sous la forme (temps, frequences, mesures[temps][freq])
     Prend en argumant un couple du type (timestamps, datas) où timestamp et data sont des listes
@@ -41,6 +45,7 @@ def getFreqArray(data, freqS, fenetre, minFreq, maxFreq):
             break
     return (t, freq[fmin:fmax], abs(np.fft.rfft(buffer, norm = 'ortho'))[:,fmin:fmax])
 
+#display spectogram
 def specto(data, minFreq = 5, maxFreq = 40):
     fig, ax = plt.subplots(figsize=(10,6))
     Pxx = spectoArray(data)
@@ -48,6 +53,7 @@ def specto(data, minFreq = 5, maxFreq = 40):
     ax.set_aspect(aspect = 0.7*2/35)
     fig.colorbar(im)
     return Pxx
+
 
 def spectoArray(data, minFreq = 5, maxFreq = 40):
     Pxx, freqs, bins = mlab.specgram(data, NFFT=200, Fs=500, noverlap=180, mode = 'magnitude')
