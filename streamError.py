@@ -3,6 +3,8 @@
 Created on Thu Sep  6 13:06:26 2018
 
 @author: Alexis
+
+Errors for streamListener
 """
 
 class UnConnctedStreamError(Exception):
