@@ -3,6 +3,8 @@
 Created on Sat Mar  9 10:59:06 2019
 
 @author: Alexis
+
+A ui element to select the user that whose eeg is recorded (eeg varies between people)
 """
 
 import tkinter as tk
