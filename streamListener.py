@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Sep  6 13:06:26 2018
+
+@author: Alexis
+
+Classes to retrieve information from the stream
+"""
+
+
 from pylsl import StreamInlet, resolve_stream
 from collections import deque
 
@@ -123,7 +133,8 @@ class FftListener(StreamListener):
                                               np.fft.fft(self._innerBuffer[self.channel_d:self.channel_f], 
                                                          self.n, 
                                                          norm="ortho") ))
-        
+    
+'''A stream listener that calls the machine learning engine once the buffer is updated'''    
 class MLlistener(StreamListener):
     def __init__(self, streamName, streamType, maxData):
         StreamListener.__init__(self, streamName, streamType, maxData)
