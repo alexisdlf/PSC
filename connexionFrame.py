@@ -3,6 +3,9 @@
 Created on Sat Mar  9 11:26:00 2019
 
 @author: Alexis
+
+A ui element to handle the creation of the stream to retrieve information
+
 """
 
 import tkinter as tk
