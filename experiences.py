@@ -3,6 +3,9 @@
 Created on Mon Dec 17 17:26:17 2018
 
 @author: Alexis
+
+A class that defines all the possible cognitive tasks
+The install method is used to create the audio intructions files
 """
 
 import random as rd
